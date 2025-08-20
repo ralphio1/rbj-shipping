@@ -5,7 +5,7 @@ services:
     plan: starter
     region: oregon
     healthCheckPath: /
-    preDeployCommand: karrio migrate
+    # No pre-deploy commands - let Karrio handle startup
     dockerfilePath: Dockerfile
     envVars:
       - key: KARRIO_HTTP_PORT
