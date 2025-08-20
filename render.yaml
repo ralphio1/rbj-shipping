@@ -28,15 +28,15 @@ services:
       - key: DATABASE_ENGINE
         value: postgresql_psycopg2
       - key: DATABASE_HOST
-        value: {{SUPABASE_HOST}}
+        value: {{DATABASE_HOST}}
       - key: DATABASE_PORT
         value: "5432"
       - key: DATABASE_USERNAME
-        value: {{SUPABASE_USER}}
+        value: {{DATABASE_USER}}
       - key: DATABASE_PASSWORD
-        value: {{SUPABASE_PASSWORD}}
+        value: {{DATABASE_PASSWORD}}
       - key: DATABASE_NAME
-        value: {{SUPABASE_DB}}
+        value: {{DATABASE_NAME}}
 
       # Redis / Key Value
       - key: REDIS_HOST
