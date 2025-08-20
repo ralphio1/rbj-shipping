@@ -108,7 +108,7 @@ services:
 
       # Worker config
       - key: DETACHED_WORKER
-        value: "True"
+        value: "False"
       - key: KARRIO_WORKERS
         value: "2"
       - key: BACKGROUND_WORKERS
