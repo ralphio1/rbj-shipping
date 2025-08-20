@@ -141,4 +141,4 @@ services:
   - type: keyvalue
     name: rebound-karrio-redis
     plan: starter
-    ipAllowlist: []
+    ipAllowList: []
