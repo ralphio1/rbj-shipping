@@ -28,15 +28,15 @@ services:
       - key: DATABASE_ENGINE
         value: postgresql_psycopg2
       - key: DATABASE_HOST
-        value: {{DATABASE_HOST}}
+        sync: false
       - key: DATABASE_PORT
-        value: "5432"
+        sync: false
       - key: DATABASE_USERNAME
-        value: {{DATABASE_USER}}
+        sync: false
       - key: DATABASE_PASSWORD
-        value: {{DATABASE_PASSWORD}}
+        sync: false
       - key: DATABASE_NAME
-        value: {{DATABASE_NAME}}
+        sync: false
 
       # Redis / Key Value
       - key: REDIS_HOST
@@ -84,15 +84,15 @@ services:
       - key: DATABASE_ENGINE
         value: postgresql_psycopg2
       - key: DATABASE_HOST
-        value: {{DATABASE_HOST}}
+        sync: false
       - key: DATABASE_PORT
         value: "5432"
       - key: DATABASE_USERNAME
-        value: {{DATABASE_USERNAME}}
+        sync: false
       - key: DATABASE_PASSWORD
-        value: {{DATABASE_PASSWORD}}
+        sync: false
       - key: DATABASE_NAME
-        value: {{DATABASE_NAME}}
+        sync: false
 
       # Redis / Key Value
       - key: REDIS_HOST
