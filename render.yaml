@@ -121,7 +121,7 @@ services:
     runtime: docker
     plan: free
     region: oregon
-    dockerfilePath: Dockerfile.dashboard
+    dockerfilePath: Dockerfile
     envVars:
       - key: DASHBOARD_PORT
         value: "$PORT"
