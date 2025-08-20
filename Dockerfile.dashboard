@@ -1,0 +1,4 @@
+FROM karrio/dashboard:latest
+
+# Copy custom dashboard components if any
+COPY ./dashboard_custom/ /app/dashboard_custom/
