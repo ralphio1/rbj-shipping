@@ -2,7 +2,7 @@ services:
   - type: web
     name: karrio-api
     runtime: docker
-    plan: standard
+    plan: free
     region: oregon
     healthCheckPath: /
     preDeployCommand: >
@@ -67,7 +67,7 @@ services:
   - type: worker
     name: karrio-worker
     runtime: docker
-    plan: starter
+    plan: free
     region: oregon
     envVars:
       - key: SECRET_KEY
@@ -117,7 +117,7 @@ services:
   - type: web
     name: karrio-dashboard
     runtime: docker
-    plan: starter
+    plan: free
     region: oregon
     envVars:
       - key: DASHBOARD_PORT
@@ -140,5 +140,5 @@ services:
 
   - type: keyvalue
     name: rebound-karrio-redis
-    plan: starter
+    plan: free
     ipAllowList: []
