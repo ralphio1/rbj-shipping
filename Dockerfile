@@ -1,8 +1,5 @@
 FROM karrio/server:latest
 
-# Add your custom dependencies
-RUN pip install --no-cache-dir
-
 # Add your custom files
 COPY ./karrio_config/ /karrio/config/
 COPY ./plugins/ /karrio/plugins/

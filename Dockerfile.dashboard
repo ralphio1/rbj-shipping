@@ -1,4 +1,4 @@
 FROM karrio/dashboard:latest
 
-# Copy custom dashboard components if any
-COPY ./dashboard_custom/ /app/dashboard_custom/
+# This Dockerfile extends the official Karrio dashboard image
+# Add custom dashboard components here when needed

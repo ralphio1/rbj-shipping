@@ -1,0 +1,27 @@
+FROM karrio/server:latest
+
+# Set environment variables for production
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Install additional system dependencies if needed
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create plugins directory
+RUN mkdir -p /karrio/plugins
+
+# Copy custom configuration files
+COPY ./karrio_config/ /karrio/config/
+COPY ./plugins/ /karrio/plugins/
+
+# Set proper permissions
+RUN chown -R karrio:karrio /karrio/plugins
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:$KARRIO_HTTP_PORT/ || exit 1
+
+# Use the default entrypoint from the base image
+CMD ["./entrypoint"]
