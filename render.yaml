@@ -5,8 +5,10 @@ services:
     plan: starter
     region: oregon
     healthCheckPath: /
-    preDeployCommand: |
-    sh -lc 'karrio migrate && karrio collectstatic --noinput'
+    startCommand: >
+     sh -lc "karrio migrate &&
+              karrio collectstatic --noinput || true &&
+              karrio start"
     dockerfilePath: Dockerfile
     envVars:
       - key: KARRIO_HTTP_PORT
