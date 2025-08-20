@@ -8,6 +8,7 @@ services:
     preDeployCommand: >
       karrio migrate &&
       karrio collectstatic --noinput
+    dockerfilePath: Dockerfile
     envVars:
       - key: KARRIO_HTTP_PORT
         value: "$PORT"
@@ -69,6 +70,7 @@ services:
     runtime: docker
     plan: free
     region: oregon
+    dockerfilePath: Dockerfile
     envVars:
       - key: SECRET_KEY
         fromService:
@@ -119,6 +121,7 @@ services:
     runtime: docker
     plan: free
     region: oregon
+    dockerfilePath: Dockerfile.dashboard
     envVars:
       - key: DASHBOARD_PORT
         value: "$PORT"
