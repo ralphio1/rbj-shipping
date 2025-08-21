@@ -58,11 +58,11 @@ services:
       - key: BACKGROUND_WORKERS
         value: "2"
 
-      # Bootstrap admin
+      # Bootstrap admin - force recreation
       - key: ADMIN_EMAIL
-        value: admin@reboundjerseys.com
+        value: contact@reboundjerseys.com
       - key: ADMIN_PASSWORD
-        generateValue: true
+        value: ReboundJerseys2025
       - key: AUTHENTICATION_BACKENDS
         value: "django.contrib.auth.backends.ModelBackend"
 
