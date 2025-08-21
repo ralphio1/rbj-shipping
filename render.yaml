@@ -62,7 +62,7 @@ services:
       - key: ADMIN_EMAIL
         value: contact@reboundjerseys.com
       - key: ADMIN_PASSWORD
-        value: ReboundJerseys2025
+        sync: false
       - key: AUTHENTICATION_BACKENDS
         value: "django.contrib.auth.backends.ModelBackend"
 
