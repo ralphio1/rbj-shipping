@@ -139,6 +139,8 @@ services:
         value: https://karrio-api.onrender.com
       - key: KARRIO_API_URL
         value: https://karrio-api.onrender.com
+      - key: KARRIO_INSECURE_API
+        value: "false"
   - type: keyvalue
     name: rebound-karrio-redis
     plan: free
