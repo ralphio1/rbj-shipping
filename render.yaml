@@ -11,7 +11,8 @@ services:
               karrio start"
     dockerfilePath: Dockerfile
     envVars:
-      # KARRIO_HTTP_PORT will use Karrio's default port behavior
+      - key: KARRIO_HTTP_PORT
+        value: "5002"
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG_MODE
