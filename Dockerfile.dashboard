@@ -1,4 +1,11 @@
 FROM karrio/dashboard:latest
 
+# Override any hardcoded URLs with proper environment variables
+# These match Karrio's standard configuration from the docs
+ENV KARRIO_PUBLIC_URL=https://karrio-api.onrender.com
+ENV DASHBOARD_URL=https://karrio-dashboard.onrender.com
+ENV NEXT_PUBLIC_KARRIO_API_URL=https://karrio-api.onrender.com
+ENV KARRIO_API_URL=https://karrio-api.onrender.com
+
 # This Dockerfile extends the official Karrio dashboard image
 # Add custom dashboard components here when needed
