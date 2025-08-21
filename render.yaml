@@ -141,7 +141,8 @@ services:
           envVarKey: JWT_SECRET
       - key: NEXT_PUBLIC_KARRIO_API_URL
         value: https://karrio-api.onrender.com
-
+      - key: KARRIO_API_URL
+        value: https://karrio-api.onrender.com
   - type: keyvalue
     name: rebound-karrio-redis
     plan: free
