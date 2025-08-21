@@ -1,11 +1,32 @@
 FROM karrio/dashboard:latest
 
-# Override any hardcoded URLs with proper environment variables
-# These match Karrio's standard configuration from the docs
+# Install sed for runtime URL replacement
+RUN apk add --no-cache sed
+
+# Create startup script to replace hardcoded URLs
+RUN cat > /usr/local/bin/start-dashboard.sh << 'EOF'
+#!/bin/sh
+echo "🔧 Configuring dashboard API URLs..."
+
+# Replace hardcoded api.karrio.io with our API URL in all relevant files
+find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|https://api\.karrio\.io|https://karrio-api.onrender.com|g' 2>/dev/null || true
+find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|http://api\.karrio\.io|https://karrio-api.onrender.com|g' 2>/dev/null || true
+
+# Also replace any localhost references that might exist
+find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|http://localhost:5002|https://karrio-api.onrender.com|g' 2>/dev/null || true
+
+echo "✅ Dashboard configured to use: https://karrio-api.onrender.com"
+
+# Start the application
+exec "$@"
+EOF
+
+RUN chmod +x /usr/local/bin/start-dashboard.sh
+
+# Set environment variables for good measure
 ENV KARRIO_PUBLIC_URL=https://karrio-api.onrender.com
 ENV DASHBOARD_URL=https://karrio-dashboard.onrender.com
 ENV NEXT_PUBLIC_KARRIO_API_URL=https://karrio-api.onrender.com
 ENV KARRIO_API_URL=https://karrio-api.onrender.com
 
-# This Dockerfile extends the official Karrio dashboard image
-# Add custom dashboard components here when needed
+ENTRYPOINT ["/usr/local/bin/start-dashboard.sh"]
