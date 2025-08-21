@@ -4,22 +4,13 @@ FROM karrio/dashboard:latest
 RUN apk add --no-cache sed
 
 # Create startup script to replace hardcoded URLs
-RUN cat > /usr/local/bin/start-dashboard.sh << 'EOF'
-#!/bin/sh
-echo "🔧 Configuring dashboard API URLs..."
-
-# Replace hardcoded api.karrio.io with our API URL in all relevant files
-find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|https://api\.karrio\.io|https://karrio-api.onrender.com|g' 2>/dev/null || true
-find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|http://api\.karrio\.io|https://karrio-api.onrender.com|g' 2>/dev/null || true
-
-# Also replace any localhost references that might exist
-find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i 's|http://localhost:5002|https://karrio-api.onrender.com|g' 2>/dev/null || true
-
-echo "✅ Dashboard configured to use: https://karrio-api.onrender.com"
-
-# Start the application
-exec "$@"
-EOF
+RUN echo '#!/bin/sh' > /usr/local/bin/start-dashboard.sh && \
+    echo 'echo "🔧 Configuring dashboard API URLs..."' >> /usr/local/bin/start-dashboard.sh && \
+    echo 'find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i "s|https://api\.karrio\.io|https://karrio-api.onrender.com|g" 2>/dev/null || true' >> /usr/local/bin/start-dashboard.sh && \
+    echo 'find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i "s|http://api\.karrio\.io|https://karrio-api.onrender.com|g" 2>/dev/null || true' >> /usr/local/bin/start-dashboard.sh && \
+    echo 'find /app -name "*.js" -o -name "*.json" -o -name "*.html" | xargs sed -i "s|http://localhost:5002|https://karrio-api.onrender.com|g" 2>/dev/null || true' >> /usr/local/bin/start-dashboard.sh && \
+    echo 'echo "✅ Dashboard configured to use: https://karrio-api.onrender.com"' >> /usr/local/bin/start-dashboard.sh && \
+    echo 'exec "$@"' >> /usr/local/bin/start-dashboard.sh
 
 RUN chmod +x /usr/local/bin/start-dashboard.sh
 
