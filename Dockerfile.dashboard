@@ -4,3 +4,11 @@ FROM karrio/dashboard:2024.12.10
 # https://www.karrio.io/docs/self-hosting/environment
 # Environment variables are set by Render at runtime
 # Note: Do not set ENV variables here as they will override Render's settings
+
+# Force override the hardcoded typo in the base image
+ENV NEXT_PUBLIC_KARRIO_PUBLIC_URL=https://karrio-api.onrender.com
+ENV NEXT_PUBLIC_KARRIO_SERVER_URL=https://karrio-api.onrender.com
+ENV NEXT_PUBLIC_KARRIO_HOST=https://karrio-api.onrender.com
+ENV NEXT_PUBLIC_KARRIO_BASE_URL=https://karrio-api.onrender.com
+ENV KARRIO_URL=https://karrio-api.onrender.com
+ENV KARRIO_PUBLIC_URL=https://karrio-api.onrender.com
