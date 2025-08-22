@@ -147,6 +147,14 @@ services:
         value: https://karrio-api.onrender.com
       - key: NEXT_PUBLIC_KARRIO_PUBLIC_URL
         value: https://karrio-api.onrender.com
+      - key: NEXT_PUBLIC_KARRIO_SERVER_URL
+        value: https://karrio-api.onrender.com
+      - key: NEXT_PUBLIC_KARRIO_HOST
+        value: https://karrio-api.onrender.com
+      - key: KARRIO_TAG
+        value: "2024.12.6"
+      - key: NEXT_PUBLIC_KARRIO_BASE_URL
+        value: https://karrio-api.onrender.com
       - key: SECRET_KEY
         fromService:
           name: karrio-api

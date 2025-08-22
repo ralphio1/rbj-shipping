@@ -1,5 +1,6 @@
-FROM karrio/dashboard:2024.12.6
+FROM karrio/dashboard:latest
 
 # Use the official environment variables from Karrio documentation
 # https://www.karrio.io/docs/self-hosting/environment
 # Environment variables are set by Render at runtime
+# Note: Do not set ENV variables here as they will override Render's settings
