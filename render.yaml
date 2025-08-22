@@ -152,7 +152,7 @@ services:
       - key: NEXT_PUBLIC_KARRIO_HOST
         value: https://karrio-api.onrender.com
       - key: KARRIO_TAG
-        value: "2024.12.6"
+        value: "2024.12.10"
       - key: NEXT_PUBLIC_KARRIO_BASE_URL
         value: https://karrio-api.onrender.com
       

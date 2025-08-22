@@ -1,4 +1,4 @@
-FROM karrio/dashboard:2024.12.6
+FROM karrio/dashboard:2024.12.10
 
 # Use the official environment variables from Karrio documentation
 # https://www.karrio.io/docs/self-hosting/environment
