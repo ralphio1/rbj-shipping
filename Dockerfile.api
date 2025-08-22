@@ -1,4 +1,4 @@
-FROM karrio/server:latest
+FROM karrio/server:2024.12.6
 
 # Set environment variables for production
 ENV PYTHONUNBUFFERED=1
