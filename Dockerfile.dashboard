@@ -2,5 +2,6 @@ FROM karrio/dashboard:2024.12.6
 
 # Use the official environment variables from Karrio documentation
 # https://www.karrio.io/docs/self-hosting/environment
-ENV KARRIO_PUBLIC_URL=https://karrio-api.onrender.com
-ENV DASHBOARD_URL=https://karrio-dashboard.onrender.com
+# Note: These are overridden by Render environment variables
+ENV KARRIO_PUBLIC_URL=http://localhost:5002
+ENV DASHBOARD_URL=http://localhost:3000
