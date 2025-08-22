@@ -2,7 +2,7 @@ services:
   - type: web
     name: karrio-api
     runtime: docker
-    plan: starter
+    plan: standard
     region: oregon
     healthCheckPath: /
     dockerfilePath: Dockerfile
@@ -69,7 +69,7 @@ services:
   - type: worker
     name: karrio-worker
     runtime: docker
-    plan: free
+    plan: starter
     region: oregon
     dockerfilePath: Dockerfile
     envVars:
